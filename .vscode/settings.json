@@ -1,0 +1,11 @@
+{
+  "go.useLanguageServer": true,
+  "go.inferGopath": false,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.hg/store/**": true,
+    "**/pkg/**": true
+  }
+}
