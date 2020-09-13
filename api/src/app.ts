@@ -6,9 +6,8 @@ import * as json from "koa-json";
 import * as logger from "koa-logger";
 import "reflect-metadata";
 import router from "./server";
-
-import * as config from "./config";
-config.load();
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const app = new Koa();
 const port = process.env.PORT || 3000;

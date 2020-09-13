@@ -1,27 +1,17 @@
-import * as dotenv from "dotenv";
 import * as defaults from "./devDefaults";
 
-let config: Config = null;
-export const CurrentConfig = config;
+export interface IConfig {
+  readonly isDev: boolean;
+  readonly youtrackToken: string;
+  readonly youtrackInstance: string;
+  readonly backlogQuery: string;
+}
 
-export const load = () => {
-  let result = dotenv.config();
-
-  if (result.error) {
-    throw result.error;
-  }
-
-  config = new Config();
-
-  if (config.isDev) {
-    console.log(result.parsed);
-  }
+const config: IConfig = {
+  isDev: process.env.DEV?.toLowerCase() == "true" || false,
+  youtrackToken: process.env.YOUTRACK_TOKEN,
+  youtrackInstance: process.env.YOUTRACK_INSTANCE,
+  backlogQuery: process.env.QUERY_BACKLOG || defaults.backlogQuery,
 };
 
-class Config {
-  readonly youtrackToken: string = process.env.YOUTRACK_TOKEN;
-  readonly youtrackInstance = process.env.YOUTRACK_INSTANCE;
-  readonly isDev: boolean = process.env.DEV?.toLowerCase() == "true" || false;
-
-  readonly backlogQuery = process.env.QUERY_BACKLOG || defaults.backlogQuery;
-}
+export const Config = config;
