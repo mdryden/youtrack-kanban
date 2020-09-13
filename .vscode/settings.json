@@ -4,5 +4,6 @@
     "**/.git/subtree-cache/**": true,
     "**/node_modules/**": true,
     "**/.hg/store/**": true
-  }
+  },
+  "editor.tabSize": 2
 }
