@@ -1,11 +1,8 @@
-import * as Router from 'koa-router';
-import IndexController from './controllers/index.controller';
-import UsersController from './controllers/users.controller';
+import * as Router from "koa-router";
+import IndexController from "./controllers/index.controller";
 
 const router = new Router();
 
-router.get('/', IndexController.getIndex);
-
-router.get('/users', UsersController.getUsers);
+router.get("/", IndexController.getIndex);
 
 export default router;
